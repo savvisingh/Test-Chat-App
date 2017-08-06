@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DocsApp Test App</string>
+    <string name="some_error">Some Error occured</string>
+</resources>
