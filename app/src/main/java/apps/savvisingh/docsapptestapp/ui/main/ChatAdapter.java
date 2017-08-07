@@ -9,6 +9,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import apps.savvisingh.docsapptestapp.R;
+import apps.savvisingh.docsapptestapp.data.db.Message;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -58,7 +59,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.Holder> {
 
         Message message = messageArrayList.get(position);
 
-        holder.message.setText(message.getMessage());
+        holder.message.setText(message.getText());
 
         holder.timeStamp.setText(message.getCreatedAt());
 

@@ -11,8 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import apps.savvisingh.docsapptestapp.R;
+import apps.savvisingh.docsapptestapp.data.db.Message;
 import apps.savvisingh.docsapptestapp.ui.base.BaseActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -53,6 +55,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
 
+        mPresenter.getChatHistory();
 
     }
 
@@ -68,6 +71,14 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         messageArrayList.add(message);
         mAdapter.notifyDataSetChanged();
         recyclerView.scrollToPosition(mAdapter.getItemCount()-1);
+    }
+
+    @Override
+    public void loadChatHistory(List<Message> mList) {
+        if(mList!=null && mList.size()>0){
+            messageArrayList.addAll(mList);
+            mAdapter.notifyDataSetChanged();
+        }
     }
 
     @Override
